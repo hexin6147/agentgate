@@ -1,6 +1,7 @@
 # [P0] 运行与观测
 
 - **状态**：closed（本地验收完成）
+- **GitHub issue**：https://github.com/hexin6147/agentgate/issues/1
 - **对应计划**：`docs/29-AgentGate开发计划.md` §5 / §6 P0；`docs/31-P0开工包.md` §8
 - **验收脚本**：`scripts/check_p0.py`
 - **验收结果**：30/30 PASS（3 个真实 case，LLM agent + Ollama）
@@ -42,5 +43,5 @@ P0 CHECK: 30/30 PASS
 
 ## 后续
 
-- 配置 git remote 后，在 GitHub 补建同名 issue 并引用本记录。
+- GitHub issue 已建：https://github.com/hexin6147/agentgate/issues/1
 - P1 再引入超时/重试、外层状态机、步数/Token 限额与轨迹评测。
