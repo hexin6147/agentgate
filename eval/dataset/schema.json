@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentgate.local/schemas/case.json",
+  "title": "AgentGate Case",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "case_id",
+    "agent_id",
+    "label",
+    "scene",
+    "raw_chat_history",
+    "trigger_query",
+    "available_tools",
+    "expected_intent",
+    "expected_behavior",
+    "expected_route",
+    "golden_expected_behavior",
+    "forbidden_behavior",
+    "judge_type",
+    "source"
+  ],
+  "properties": {
+    "case_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_\\-]+$"
+    },
+    "agent_id": {
+      "type": "string"
+    },
+    "label": {
+      "enum": ["normal", "boundary", "adversarial"]
+    },
+    "scene": {
+      "type": "string"
+    },
+    "raw_chat_history": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["message_id", "user", "ts", "msg"],
+        "properties": {
+          "message_id": {"type": "string"},
+          "user": {"type": "string"},
+          "ts": {"type": "string"},
+          "msg": {"type": "string"}
+        }
+      }
+    },
+    "topics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["topic_id", "message_ids", "label"],
+        "properties": {
+          "topic_id": {"type": "string"},
+          "message_ids": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "label": {"type": "string"}
+        }
+      }
+    },
+    "trigger_query": {
+      "type": "string"
+    },
+    "available_tools": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "expected_intent": {
+      "type": "string"
+    },
+    "expected_behavior": {
+      "enum": ["B1", "B2", "B3", "B4", "B5", "B6"]
+    },
+    "expected_route": {
+      "enum": ["AUTO", "CONFIRM", "ASK", "REJECT", "TRANSFER"]
+    },
+    "golden_expected_behavior": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string"}
+    },
+    "forbidden_behavior": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string"}
+    },
+    "relevant_message_ids": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "judge_type": {
+      "enum": ["hard_rule", "human_review", "llm_judge"]
+    },
+    "difficulty": {
+      "enum": ["easy", "medium", "hard"]
+    },
+    "notes": {
+      "type": "string"
+    },
+    "context": {
+      "type": "object"
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["origin", "license", "rewritten"],
+      "properties": {
+        "origin": {"type": "string"},
+        "url": {"type": "string"},
+        "license": {"type": "string"},
+        "rewritten": {"type": "boolean"},
+        "date": {"type": "string"}
+      }
+    }
+  }
+}

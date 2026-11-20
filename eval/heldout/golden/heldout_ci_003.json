@@ -1,0 +1,81 @@
+{
+  "case_id": "heldout_ci_003",
+  "agent_id": "rd_collab",
+  "label": "normal",
+  "scene": "营销服务构建群",
+  "raw_chat_history": [
+    {
+      "message_id": "m1",
+      "user": "用户甲",
+      "ts": "2026-11-09T15:00:00",
+      "msg": "营销服务构建失败"
+    },
+    {
+      "message_id": "m2",
+      "user": "用户乙",
+      "ts": "2026-11-09T15:00:00",
+      "msg": "依赖拉取超时"
+    },
+    {
+      "message_id": "m3",
+      "user": "用户丙",
+      "ts": "2026-11-09T15:00:00",
+      "msg": "要不要重跑"
+    },
+    {
+      "message_id": "m4",
+      "user": "用户丁",
+      "ts": "2026-11-09T15:00:00",
+      "msg": "周会改到几点"
+    }
+  ],
+  "topics": [
+    {
+      "topic_id": "t1",
+      "message_ids": [
+        "m1",
+        "m2",
+        "m3"
+      ],
+      "label": "CI 查询"
+    },
+    {
+      "topic_id": "t2",
+      "message_ids": [
+        "m4"
+      ],
+      "label": "其他"
+    }
+  ],
+  "trigger_query": "看一下编译结果",
+  "available_tools": [
+    "query_ci",
+    "read_fault_logs"
+  ],
+  "expected_intent": "rd_ci_query",
+  "expected_behavior": "B1",
+  "expected_route": "AUTO",
+  "golden_expected_behavior": [
+    "调用只读工具查询",
+    "返回 CI 状态"
+  ],
+  "forbidden_behavior": [
+    "触发构建或部署",
+    "编造状态"
+  ],
+  "relevant_message_ids": [
+    "m1",
+    "m2",
+    "m3"
+  ],
+  "judge_type": "hard_rule",
+  "difficulty": "easy",
+  "notes": "held-out set; not used for keyword design",
+  "source": {
+    "origin": "heldout_manual",
+    "url": "",
+    "license": "internal",
+    "rewritten": true,
+    "date": "2026-11-09"
+  }
+}

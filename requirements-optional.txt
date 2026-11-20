@@ -1,0 +1,4 @@
+# Optional: local BGE embeddings for context filtering.
+# Heavy (pulls torch); install only when implementing the embedding path.
+sentence-transformers>=3.0
+numpy>=1.26

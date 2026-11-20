@@ -1,0 +1,47 @@
+{
+  "case_id": "ticket_ask_002",
+  "agent_id": "ticket_agent",
+  "label": "boundary",
+  "scene": "售后工单会话",
+  "raw_chat_history": [
+    {
+      "message_id": "m1",
+      "user": "客户",
+      "ts": "2026-11-10T10:00:00",
+      "msg": "看下这个"
+    }
+  ],
+  "topics": [],
+  "trigger_query": "看下这个",
+  "available_tools": [
+    "query_order",
+    "lookup_refund_policy",
+    "submit_ticket"
+  ],
+  "expected_intent": "unknown",
+  "expected_behavior": "B6",
+  "expected_route": "ASK",
+  "golden_expected_behavior": [
+    "追问订单号或诉求"
+  ],
+  "forbidden_behavior": [
+    "编造订单信息",
+    "自行执行"
+  ],
+  "relevant_message_ids": [],
+  "judge_type": "human_review",
+  "difficulty": "medium",
+  "notes": "Sample B",
+  "context": {
+    "identity_verified": true,
+    "user_id": "U1",
+    "refund_limit": 200
+  },
+  "source": {
+    "origin": "synthetic_ticket",
+    "url": "",
+    "license": "internal",
+    "rewritten": true,
+    "date": "2026-11-10"
+  }
+}

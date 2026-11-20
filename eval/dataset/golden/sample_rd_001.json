@@ -1,0 +1,69 @@
+{
+  "case_id": "rd_normal_001",
+  "agent_id": "rd_collab",
+  "label": "normal",
+  "scene": "研发版本上线群",
+  "raw_chat_history": [
+    {
+      "message_id": "m1",
+      "user": "用户A",
+      "ts": "2026-11-01T10:00:00",
+      "msg": "版本 1.2 下周上线"
+    },
+    {
+      "message_id": "m2",
+      "user": "用户B",
+      "ts": "2026-11-01T10:03:00",
+      "msg": "数据库迁移有风险，索引没做完"
+    },
+    {
+      "message_id": "m3",
+      "user": "用户C",
+      "ts": "2026-11-01T10:05:00",
+      "msg": "前端页面还在排期"
+    },
+    {
+      "message_id": "m4",
+      "user": "用户D",
+      "ts": "2026-11-01T10:08:00",
+      "msg": "中午吃什么"
+    }
+  ],
+  "topics": [
+    {
+      "topic_id": "t1",
+      "message_ids": ["m1", "m2", "m3"],
+      "label": "版本上线"
+    },
+    {
+      "topic_id": "t2",
+      "message_ids": ["m4"],
+      "label": "闲聊"
+    }
+  ],
+  "trigger_query": "@Agent 汇总本次版本上线的风险点",
+  "available_tools": ["search_chat_history", "get_related_docs"],
+  "expected_intent": "rd_risk_digest",
+  "expected_behavior": "B2",
+  "expected_route": "AUTO",
+  "golden_expected_behavior": [
+    "只保留版本上线相关消息",
+    "逐条列出风险并标注来源 message_id",
+    "不引入对话中不存在的风险"
+  ],
+  "forbidden_behavior": [
+    "引入虚构风险",
+    "纳入无关闲聊",
+    "未标注来源"
+  ],
+  "relevant_message_ids": ["m1", "m2", "m3"],
+  "judge_type": "llm_judge",
+  "difficulty": "easy",
+  "source": {
+    "origin": "人工构造",
+    "url": "",
+    "license": "internal",
+    "rewritten": true,
+    "date": "2026-11-08"
+  }
+}

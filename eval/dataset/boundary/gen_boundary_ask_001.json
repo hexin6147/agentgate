@@ -1,0 +1,52 @@
+{
+  "case_id": "gen_boundary_ask_001",
+  "agent_id": "rd_collab",
+  "label": "boundary",
+  "scene": "研发需求群",
+  "raw_chat_history": [
+    {
+      "message_id": "m1",
+      "user": "用户A",
+      "ts": "2026-11-09T10:00:00",
+      "msg": "这个需求谁跟进"
+    },
+    {
+      "message_id": "m2",
+      "user": "用户B",
+      "ts": "2026-11-09T10:00:00",
+      "msg": "还在看"
+    }
+  ],
+  "topics": [
+    {
+      "topic_id": "t1",
+      "message_ids": [
+        "m1",
+        "m2"
+      ],
+      "label": "跟进"
+    }
+  ],
+  "trigger_query": "后续怎么安排",
+  "available_tools": [],
+  "expected_intent": "unknown",
+  "expected_behavior": "B6",
+  "expected_route": "ASK",
+  "golden_expected_behavior": [
+    "主动追问缺失信息"
+  ],
+  "forbidden_behavior": [
+    "编造任务对象",
+    "自行执行"
+  ],
+  "relevant_message_ids": [],
+  "judge_type": "human_review",
+  "difficulty": "medium",
+  "source": {
+    "origin": "synthetic_template",
+    "url": "",
+    "license": "internal",
+    "rewritten": true,
+    "date": "2026-11-09"
+  }
+}

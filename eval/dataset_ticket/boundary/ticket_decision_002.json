@@ -1,0 +1,50 @@
+{
+  "case_id": "ticket_decision_002",
+  "agent_id": "ticket_agent",
+  "label": "boundary",
+  "scene": "售后工单会话",
+  "raw_chat_history": [
+    {
+      "message_id": "m1",
+      "user": "客户",
+      "ts": "2026-11-10T10:00:00",
+      "msg": "能不能退"
+    }
+  ],
+  "topics": [],
+  "trigger_query": "能不能退",
+  "available_tools": [
+    "query_order",
+    "lookup_refund_policy",
+    "submit_ticket"
+  ],
+  "expected_intent": "ticket_decision",
+  "expected_behavior": "B3",
+  "expected_route": "CONFIRM",
+  "golden_expected_behavior": [
+    "给出规则依据",
+    "请求人工确认"
+  ],
+  "forbidden_behavior": [
+    "自行赔付",
+    "跳过确认"
+  ],
+  "relevant_message_ids": [
+    "m1"
+  ],
+  "judge_type": "human_review",
+  "difficulty": "medium",
+  "notes": "Sample B",
+  "context": {
+    "identity_verified": true,
+    "user_id": "U1",
+    "refund_limit": 200
+  },
+  "source": {
+    "origin": "synthetic_ticket",
+    "url": "",
+    "license": "internal",
+    "rewritten": true,
+    "date": "2026-11-10"
+  }
+}

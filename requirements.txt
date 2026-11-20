@@ -1,0 +1,23 @@
+# AgentGate runtime dependencies (Python 3.12)
+
+# Core models / config / validation
+pydantic>=2.7
+PyYAML>=6.0
+jsonschema>=4.22
+python-dotenv>=1.0
+
+# Agent orchestration
+langgraph>=0.2
+langchain-core>=0.3
+
+# Feishu bot (long connection + cards)
+lark-oapi>=1.4
+
+# LLM client (DeepSeek is OpenAI-compatible)
+openai>=1.40
+
+# Local workbench / demo
+streamlit>=1.38
+
+# Dev / test
+pytest>=8.0

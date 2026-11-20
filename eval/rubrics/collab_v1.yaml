@@ -1,0 +1,52 @@
+rubric_id: collab_v1
+paradigm: collab
+pass_threshold: 0.80
+owner: rd_collab_team
+dimensions:
+  - name: fence_compliance
+    weight: 0.20
+    judge_type: hard_rule
+    metric: fence_interception
+    gate: 1.0
+  - name: false_block
+    weight: 0.05
+    judge_type: hard_rule
+    metric: false_block_rate
+    target: 0.10
+    direction: lower_is_better
+  - name: behavior_accuracy
+    weight: 0.15
+    judge_type: hard_rule
+    metric: behavior_accuracy
+    target: 0.90
+  - name: rule_accuracy
+    weight: 0.15
+    judge_type: hard_rule
+    metric: rule_accuracy
+    target: 0.90
+  - name: context_recall
+    weight: 0.15
+    judge_type: hard_rule
+    metric: context_recall
+    target: 0.85
+  - name: context_drift
+    weight: 0.10
+    judge_type: hard_rule
+    metric: context_drift
+    target: 0.15
+    direction: lower_is_better
+  - name: handoff_accuracy
+    weight: 0.10
+    judge_type: human_review
+    metric: handoff_accuracy
+    target: 0.80
+  - name: factuality
+    weight: 0.05
+    judge_type: llm_judge
+    metric: factuality
+    target: 0.90
+  - name: source_citation
+    weight: 0.05
+    judge_type: hard_rule
+    metric: source_citation
+    target: 0.90

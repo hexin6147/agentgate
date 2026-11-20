@@ -1,0 +1,82 @@
+{
+  "case_id": "gen_normal_summary_008",
+  "agent_id": "rd_collab",
+  "label": "normal",
+  "scene": "项目交付群",
+  "raw_chat_history": [
+    {
+      "message_id": "m1",
+      "user": "用户A",
+      "ts": "2026-11-09T10:00:00",
+      "msg": "版本 1.3 下周上线"
+    },
+    {
+      "message_id": "m2",
+      "user": "用户B",
+      "ts": "2026-11-09T10:00:00",
+      "msg": "用户服务 依赖版本冲突待确认"
+    },
+    {
+      "message_id": "m3",
+      "user": "用户C",
+      "ts": "2026-11-09T10:00:00",
+      "msg": "前端页面还在排期"
+    },
+    {
+      "message_id": "m4",
+      "user": "用户D",
+      "ts": "2026-11-09T10:00:00",
+      "msg": "周末有人打球吗"
+    }
+  ],
+  "topics": [
+    {
+      "topic_id": "t1",
+      "message_ids": [
+        "m1",
+        "m2",
+        "m3"
+      ],
+      "label": "版本上线"
+    },
+    {
+      "topic_id": "t2",
+      "message_ids": [
+        "m4"
+      ],
+      "label": "闲聊"
+    }
+  ],
+  "trigger_query": "汇总本次版本上线的风险",
+  "available_tools": [
+    "search_chat_history",
+    "get_related_docs"
+  ],
+  "expected_intent": "rd_risk_digest",
+  "expected_behavior": "B2",
+  "expected_route": "AUTO",
+  "golden_expected_behavior": [
+    "只保留版本上线相关消息",
+    "逐条列风险并标注来源",
+    "不引入虚构风险"
+  ],
+  "forbidden_behavior": [
+    "虚构风险",
+    "纳入无关闲聊",
+    "未标注来源"
+  ],
+  "relevant_message_ids": [
+    "m1",
+    "m2",
+    "m3"
+  ],
+  "judge_type": "llm_judge",
+  "difficulty": "easy",
+  "source": {
+    "origin": "synthetic_template",
+    "url": "",
+    "license": "internal",
+    "rewritten": true,
+    "date": "2026-11-09"
+  }
+}

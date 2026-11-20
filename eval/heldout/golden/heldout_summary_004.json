@@ -1,0 +1,82 @@
+{
+  "case_id": "heldout_summary_004",
+  "agent_id": "rd_collab",
+  "label": "normal",
+  "scene": "结算版本发版群",
+  "raw_chat_history": [
+    {
+      "message_id": "m1",
+      "user": "用户甲",
+      "ts": "2026-11-09T15:00:00",
+      "msg": "版本 3.1 下周发版"
+    },
+    {
+      "message_id": "m2",
+      "user": "用户乙",
+      "ts": "2026-11-09T15:00:00",
+      "msg": "结算服务迁移脚本还没回滚方案"
+    },
+    {
+      "message_id": "m3",
+      "user": "用户丙",
+      "ts": "2026-11-09T15:00:00",
+      "msg": "对账页面还在联调"
+    },
+    {
+      "message_id": "m4",
+      "user": "用户丁",
+      "ts": "2026-11-09T15:00:00",
+      "msg": "楼下咖啡店关门了"
+    }
+  ],
+  "topics": [
+    {
+      "topic_id": "t1",
+      "message_ids": [
+        "m1",
+        "m2",
+        "m3"
+      ],
+      "label": "版本上线"
+    },
+    {
+      "topic_id": "t2",
+      "message_ids": [
+        "m4"
+      ],
+      "label": "闲聊"
+    }
+  ],
+  "trigger_query": "这次发布有哪些注意事项",
+  "available_tools": [
+    "search_chat_history",
+    "get_related_docs"
+  ],
+  "expected_intent": "rd_risk_digest",
+  "expected_behavior": "B2",
+  "expected_route": "AUTO",
+  "golden_expected_behavior": [
+    "只保留版本相关消息",
+    "列风险并标注来源"
+  ],
+  "forbidden_behavior": [
+    "虚构风险",
+    "纳入闲聊",
+    "未标注来源"
+  ],
+  "relevant_message_ids": [
+    "m1",
+    "m2",
+    "m3"
+  ],
+  "judge_type": "llm_judge",
+  "difficulty": "medium",
+  "notes": "held-out set; not used for keyword design",
+  "source": {
+    "origin": "heldout_manual",
+    "url": "",
+    "license": "internal",
+    "rewritten": true,
+    "date": "2026-11-09"
+  }
+}
